@@ -1,0 +1,16 @@
+Задание 1
+SELECT co.login, 
+       orr.inDelivery 
+FROM “Orders” AS orr 
+INNER JOIN “Couriers” AS co ON co.id = orr.courierId 
+WHERE orr.inDelivery = true;
+
+Задание 2
+SELECT track,
+              CASE 
+              WHEN finished == true THEN 2
+              WHEN cancelled == true THEN -1
+              WHEN inDelivery = true THEN 1
+              ELSE 0
+              END AS status
+FROM "Orders";
