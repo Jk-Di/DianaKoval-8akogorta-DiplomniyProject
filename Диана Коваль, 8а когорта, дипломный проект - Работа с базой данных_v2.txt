@@ -1,9 +1,10 @@
-Задание 1
+Задание 1_v2
 SELECT co.login, 
-       orr.inDelivery 
+       COUNT(orr.inDelivery) AS activeOrder
 FROM “Orders” AS orr 
 INNER JOIN “Couriers” AS co ON co.id = orr.courierId 
-WHERE orr.inDelivery = true;
+WHERE orr.inDelivery = true
+GROUP BY co.login;
 
 Задание 2
 SELECT track,
